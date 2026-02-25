@@ -5,13 +5,16 @@
     <title>Network Monitor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="/vendor/adminlte/plugins/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="/vendor/adminlte/dist/css/adminlte.min.css">
+    <link
+      rel="stylesheet"
+      href="/vendor/adminlte/plugins/fontawesome-free/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/vendor/adminlte/dist/css/adminlte.min.css" />
+    <link rel="icon" href="/favicon.ico" />
   </head>
 
-  <body class="layout-fixed">
-    <div class="wrapper sidebar-expand-lg sidebar-mini">
-
+  <body class="bg-light">
+    <div class="wrapper sidebar-mini">
       <!-- Navbar -->
       <nav class="main-header navbar navbar-expand navbar-dark navbar-primary">
         <ul class="navbar-nav">
@@ -21,7 +24,6 @@
             </a>
           </li>
         </ul>
-
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <span class="nav-link">Network Monitoring System</span>
@@ -31,7 +33,7 @@
 
       <!-- Sidebar -->
       <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <a href="#" class="brand-link text-center">
+        <a href="/index.html" class="brand-link text-center">
           <span class="brand-text font-weight-light">NE2 Monitor</span>
         </a>
 
@@ -39,19 +41,17 @@
           <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="/dashboard.html" class="nav-link active">
                   <i class="nav-icon fas fa-chart-line"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
-
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/devices.html" class="nav-link">
                   <i class="nav-icon fas fa-server"></i>
                   <p>Devices</p>
                 </a>
               </li>
-
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-bell"></i>
@@ -63,34 +63,33 @@
         </div>
       </aside>
 
-      <!-- Content Wrapper -->
-      <div class="content-wrapper">
-        <div class="content-header">
-          <div class="container-fluid">
-            <h1 class="m-0">Dashboard</h1>
-          </div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (optional) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <!-- You can add a page title or breadcrumbs here if needed -->
         </div>
-
-        <section class="content">
-          <div class="container-fluid">
-            <div class="row" id="deviceContainer">
-              <!-- JS จะสร้าง card ตรงนี้ -->
-            </div>
-          </div>
-        </section>
       </div>
 
-      <!-- Footer -->
-      <footer class="main-footer text-sm">
-        <strong>Copyright &copy; 2026</strong>
-        Network Monitoring System
-      </footer>
-
+      <!-- Main content -->
+      <div class="content">
+        <div class="container-fluid mt-4">
+          <!-- Row สำหรับใส่ Card -->
+          <div class="row" id="monitorContainer">
+            <!-- Card จะถูกสร้างจาก JS -->
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script src="/vendor/adminlte/plugins/jquery/jquery.min.js"></script>
-    <script src="/vendor/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/vendor/adminlte/dist/js/adminlte.min.js"></script>
-    <script src="/js/app.js"></script>
+    <!-- Footer -->
+    <footer class="main-footer text-sm">
+      <strong>Copyright &copy; 2026</strong>
+      Network Monitoring System
+    </footer>
+    </div>
+
+    <script src="js/dashboard.js"></script>
   </body>
 </html>

@@ -1,2 +1,31 @@
 node_modules
 .env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+# Build / output
+dist/
+build/
+
+# Coverage
+coverage/
+
+# IDEs
+.vscode/
+.idea/
+
+# Misc
+.cache/
+*.tgz
+*.sqlite3
+
+# Local config (may contain credentials)
+/config/config.json

@@ -1,24 +1,25 @@
 const express = require("express");
-const ping = require("ping");
 const router = express.Router();
-
-const devices = ["8.8.8.8", "1.1.1.1"];
+const ping = require("ping");
 
 router.get("/", async (req, res) => {
-  const results = [];
+  const ip = req.query.ip;
 
-  for (let ip of devices) {
-    const result = await ping.promise.probe(ip);
-
-    results.push({
-      ip,
-      status: result.alive ? "online" : "offline",
-      latency: result.time,
-      loss: result.packetLoss || 0
-    });
+  if (!ip) {
+    return res.status(400).json({ error: "IP required" });
   }
 
-  res.json(results);
+  try {
+    const result = await ping.promise.probe(ip);
+
+    res.json({
+      alive: result.alive,
+      latency: result.time || 0
+    });
+
+  } catch (err) {
+    res.status(500).json({ error: "Ping failed" });
+  }
 });
 
 module.exports = router;
