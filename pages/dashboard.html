@@ -1,0 +1,56 @@
+<div class="content-wrapper">
+
+  <!-- Main content -->
+  <div class="content">
+
+    <!-- Latency Chart -->
+    <div class="card mt-4">
+      <div class="card-header bg-primary text-white">
+        Latency Monitoring
+      </div>
+      <div class="card-body">
+        <canvas id="latencyChart" height="100"></canvas>
+      </div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="row mb-3 mt-3">
+
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm">
+          <div class="card-body">
+            <h6>Total Devices</h6>
+            <h3 id="totalCount">0</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm border-success">
+          <div class="card-body">
+            <h6 class="text-success">Online</h6>
+            <h3 id="onlineCount" class="text-success">0</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card text-center shadow-sm border-danger">
+          <div class="card-body">
+            <h6 class="text-danger">Offline</h6>
+            <h3 id="offlineCount" class="text-danger">0</h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Device Cards -->
+    <div class="container-fluid mt-4">
+      <div class="row" id="deviceList">
+        <!-- JS จะ inject card ตรงนี้ -->
+      </div>
+    </div>
+
+  </div>
+</div>

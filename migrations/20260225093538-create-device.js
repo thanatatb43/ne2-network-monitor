@@ -1,5 +1,4 @@
 'use strict';
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Devices', {
@@ -9,30 +8,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      type: {
-        type: Sequelize.STRING
-      },
-      name: {
-        type: Sequelize.STRING
-      },
-      province: {
-        type: Sequelize.STRING
-      },
-      wanGateway: {
-        type: Sequelize.STRING
-      },
-      wanIP: {
-        type: Sequelize.STRING
-      },
-      vpnMain: {
-        type: Sequelize.STRING
-      },
-      vpnBackup: {
-        type: Sequelize.STRING
-      },
-      gateway: {
-        type: Sequelize.STRING
-      },
+      type: Sequelize.STRING,
+      pea_name: Sequelize.STRING,
+      province: Sequelize.STRING,
+      gateway: Sequelize.STRING,
+      wan_gateway: Sequelize.STRING,
+      wan_ip: Sequelize.STRING,
+      vpn_main: Sequelize.STRING,
+      vpn_backup: Sequelize.STRING,
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -43,7 +26,7 @@ module.exports = {
       }
     });
   },
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface) {
     await queryInterface.dropTable('Devices');
   }
 };

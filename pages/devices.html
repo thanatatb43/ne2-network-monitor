@@ -1,0 +1,212 @@
+<!-- Content Wrapper -->
+<div class="content-wrapper">
+  <!-- Header -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <h1 class="m-0">Devices</h1>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <section class="content">
+    <div class="container-fluid">
+      <!-- Add Device Card -->
+      <div class="card shadow-sm border-0">
+        <div class="card-header bg-primary">
+          <h3 class="card-title">Add Device</h3>
+        </div>
+
+        <div class="card-body">
+          <form id="addDeviceForm">
+            <div class="row g-3">
+              <div class="col-md-3">
+                <input
+                  id="type"
+                  class="form-control form-control-sm"
+                  placeholder="ประเภท"
+                />
+              </div>
+
+              <div class="col-md-3">
+                <input
+                  id="pea_name"
+                  class="form-control form-control-sm"
+                  placeholder="รายชื่อการไฟฟ้า"
+                />
+              </div>
+
+              <div class="col-md-3">
+                <input
+                  id="province"
+                  class="form-control form-control-sm"
+                  placeholder="จังหวัด"
+                />
+              </div>
+
+              <div class="col-md-3">
+                <input
+                  id="gateway"
+                  class="form-control form-control-sm"
+                  placeholder="Gateway"
+                />
+              </div>
+
+              <div class="col-md-3">
+                <input
+                  id="wan_gateway"
+                  class="form-control form-control-sm"
+                  placeholder="WAN Gateway (MPLS)"
+                />
+              </div>
+
+              <div class="col-md-3">
+                <input
+                  id="wan_ip"
+                  class="form-control form-control-sm"
+                  placeholder="WAN IP (FGT)"
+                />
+              </div>
+
+              <div class="col-md-3">
+                <input
+                  id="vpn_main"
+                  class="form-control form-control-sm"
+                  placeholder="VPN MAIN"
+                />
+              </div>
+
+              <div class="col-md-3">
+                <input
+                  id="vpn_backup"
+                  class="form-control form-control-sm"
+                  placeholder="VPN BACKUP"
+                />
+              </div>
+
+              <div class="col-12 d-flex justify-content-end mt-4">
+                <button
+                  id="cancelEdit"
+                  class="btn btn-outline-secondary btn-sm me-2"
+                  style="display: none"
+                >
+                  Cancel
+                </button>
+
+                <button
+                  id="saveDevice"
+                  class="btn btn-primary btn-sm px-4 d-flex align-items-center"
+                >
+                  <span id="btnText">Save Device</span>
+
+                  <span
+                    id="btnSpinner"
+                    class="spinner-border spinner-border-sm ms-2"
+                    role="status"
+                    style="display: none"
+                  >
+                  </span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <h3 class="mt-4">Device List</h3>
+
+      <div class="card shadow-sm border-0 mt-3">
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-hover modern-table mb-0" id="deviceTable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Type</th>
+                  <th>PEA Name</th>
+                  <th>Province</th>
+                  <th>Gateway</th>
+                  <th>WAN Gateway</th>
+                  <th>WAN IP</th>
+                  <th>VPN Main</th>
+                  <th>VPN Backup</th>
+                  <th class="text-center">Action</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- DELETE CONFIRM MODAL -->
+      <div class="modal fade" id="deleteModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+              <h5 class="modal-title">Confirm Delete</h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+              ></button>
+            </div>
+
+            <div class="modal-body">
+              Are you sure you want to delete this device?
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                id="confirmDeleteBtn"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUCCESS MODAL -->
+      <div class="modal fade" id="successModal" tabindex="-1">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content text-center">
+            <div class="modal-body py-4">
+              <div class="mb-3">
+                <i
+                  class="bi bi-check-circle-fill text-success"
+                  style="font-size: 40px"
+                ></i>
+              </div>
+              <h5 id="successMessage">Saved successfully</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Device Cards -->
+      <div class="row" id="deviceContainer">
+        <!-- JS จะสร้าง card ตรงนี้ -->
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- GLOBAL LOADER -->
+<div id="globalLoader">
+  <div class="loader-content text-center">
+    <div
+      class="spinner-border text-primary mb-3"
+      style="width: 3rem; height: 3rem"
+    ></div>
+    <div>Processing...</div>
+  </div>
+</div>

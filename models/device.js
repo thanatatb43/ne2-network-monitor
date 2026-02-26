@@ -15,13 +15,13 @@ module.exports = (sequelize, DataTypes) => {
   }
   Device.init({
     type: DataTypes.STRING,
-    name: DataTypes.STRING,
+    pea_name: DataTypes.STRING,
     province: DataTypes.STRING,
-    wanGateway: DataTypes.STRING,
-    wanIP: DataTypes.STRING,
-    vpnMain: DataTypes.STRING,
-    vpnBackup: DataTypes.STRING,
-    gateway: DataTypes.STRING
+    gateway: DataTypes.STRING,
+    wan_gateway: DataTypes.STRING,
+    wan_ip: DataTypes.STRING,
+    vpn_main: DataTypes.STRING,
+    vpn_backup: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Device',
