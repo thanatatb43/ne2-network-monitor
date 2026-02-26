@@ -83,110 +83,74 @@
 
               <div class="card-body">
                 <form id="addDeviceForm">
-                  <div class="row">
-                    <div class="col-md-3 mb-2">
-                      <input
-                        type="text"
-                        class="form-control"
-                        name="type"
-                        placeholder="ประเภท"
-                        required
-                      />
-                    </div>
+                  <div class="card-body">
+                    <form id="addDeviceForm">
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="type">ประเภท</label>
+                            <input type="text" id="type" name="type" class="form-control" placeholder="ประเภท" required />
+                          </div>
+                        </div>
 
-                    <div class="col-md-3 mb-2">
-                      <input
-                        type="text"
-                        class="form-control"
-                        name="name"
-                        placeholder="รายชื่อการไฟฟ้า"
-                        required
-                      />
-                    </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="name">รายชื่อการไฟฟ้า</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="รายชื่อการไฟฟ้า" required />
+                          </div>
+                        </div>
 
-                    <div class="col-md-3 mb-2">
-                      <input
-                        type="text"
-                        class="form-control"
-                        name="province"
-                        placeholder="จังหวัด"
-                        required
-                      />
-                    </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="province">จังหวัด</label>
+                            <input type="text" id="province" name="province" class="form-control" placeholder="จังหวัด" required />
+                          </div>
+                        </div>
 
-                    <div class="col-md-3 mb-2">
-                      <input
-                        type="text"
-                        class="form-control"
-                        name="gateway"
-                        placeholder="Gateway"
-                      />
-                    </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="gateway">Gateway</label>
+                            <input type="text" id="gateway" name="gateway" class="form-control" placeholder="Gateway" />
+                          </div>
+                        </div>
+                      </div>
 
-                    <div class="col-md-3 mb-2">
-                      <input
-                        type="text"
-                        class="form-control"
-                        name="wanGateway"
-                        placeholder="WAN Gateway (MPLS)"
-                      />
-                    </div>
+                      <div class="row mt-3">
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="wanGateway">WAN Gateway (MPLS)</label>
+                            <input type="text" id="wanGateway" name="wanGateway" class="form-control" placeholder="WAN Gateway (MPLS)" />
+                          </div>
+                        </div>
 
-                    <div class="col-md-3 mb-2">
-                      <input
-                        type="text"
-                        class="form-control"
-                        name="wanIP"
-                        placeholder="WAN IP (FGT)"
-                      />
-                    </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="wanIP">WAN IP (FGT)</label>
+                            <input type="text" id="wanIP" name="wanIP" class="form-control" placeholder="WAN IP (FGT)" />
+                          </div>
+                        </div>
 
-                    <div class="col-md-3 mb-2">
-                      <input
-                        type="text"
-                        class="form-control"
-                        name="vpnMain"
-                        placeholder="VPN MAIN"
-                      />
-                    </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="vpnMain">VPN MAIN</label>
+                            <input type="text" id="vpnMain" name="vpnMain" class="form-control" placeholder="VPN MAIN" />
+                          </div>
+                        </div>
 
-                    <div class="col-md-3 mb-2">
-                      <input
-                        type="text"
-                        class="form-control"
-                        name="vpnBackup"
-                        placeholder="VPN BACKUP"
-                      />
-                    </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label for="vpnBackup">VPN BACKUP</label>
+                            <input type="text" id="vpnBackup" name="vpnBackup" class="form-control" placeholder="VPN BACKUP" />
+                          </div>
+                        </div>
+                      </div>
 
-                    <div class="col-md-12 mt-2">
-                      <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-save"></i> Save Device
-                      </button>
-                    </div>
+                      <div class="row mt-3">
+                        <div class="col-md-12">
+                          <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Save Device
+                          </button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
-                </form>
-              </div>
-            </div>
-
-            <!-- Device Cards -->
-            <div class="row" id="deviceContainer">
-              <!-- JS จะสร้าง card ตรงนี้ -->
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <!-- Footer -->
-      <footer class="main-footer text-sm">
-        <strong>Copyright &copy; 2026</strong>
-        Network Monitoring System
-      </footer>
-    </div>
-    <script src="/vendor/adminlte/plugins/jquery/jquery.min.js"></script>
-    <script src="/vendor/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="/vendor/adminlte/dist/js/adminlte.min.js"></script>
-    <script src="/js/app.js"></script>
-    <script src="/js/devices.js"></script>
-  </body>
-</html>
