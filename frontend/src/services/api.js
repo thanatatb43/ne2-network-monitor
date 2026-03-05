@@ -1,10 +1,7 @@
 import axios from "axios"
 
 const api = axios.create({
-  baseURL: "/api"
+  baseURL: "http://localhost:3000/api"
 })
 
-export async function fetchDevices() {
-  const res = await api.get("/devices")
-  return res.data
-}
+export default api

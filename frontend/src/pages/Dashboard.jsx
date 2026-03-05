@@ -1,35 +1,75 @@
 import { useEffect, useState } from "react"
-import { fetchDevices } from "../services/api"
+import api from "../services/api"
+import "./Dashboard.css"
 
-export default function Dashboard() {
-
+function Dashboard() {
   const [devices, setDevices] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const onlineCount = devices.filter(d => d.status === "online").length
+const offlineCount = devices.filter(d => d.status === "offline").length
+const sortedDevices = [...devices].sort((a, b) =>
+  a.status === "online" && b.status === "offline" ? -1 : 1
+)
 
   useEffect(() => {
-    load()
-  }, [])
-
-  async function load() {
+  const loadStatus = async () => {
     try {
-      const data = await fetchDevices()
-      setDevices(data)
+      const res = await api.get("/devices/status")
+      setDevices(res.data)
+      setLoading(false)
     } catch (err) {
-      console.error("API Error:", err)
+      console.error(err)
+      setLoading(false)
     }
   }
 
+  loadStatus()
+  const interval = setInterval(loadStatus, 10000)
+
+  return () => clearInterval(interval)
+}, [])
+
+  if (loading) return <p>Loading dashboard...</p>
+  if (error) return <p style={{ color: "red" }}>{error}</p>
+
   return (
-    <div>
-      <h2>Dashboard Page</h2>
+  <div className="dashboard">
+    <h2>Dashboard</h2>
 
-      <ul>
-        {devices.map((d, index) => (
-          <li key={index}>
-            {d.pea_name || d.name || JSON.stringify(d)}
-          </li>
-        ))}
-      </ul>
-
+    {/* ✅ ย้าย summary ออกมา */}
+    <div className="summary">
+      <div className="summary-card online">
+        Online: {onlineCount}
+      </div>
+      <div className="summary-card offline">
+        Offline: {offlineCount}
+      </div>
+      <div className="summary-card total">
+        Total: {devices.length}
+      </div>
     </div>
-  )
+
+    <div className="card-container">
+      {sortedDevices.map((device) => (
+        <div
+          key={device.id}
+          className={`card ${
+            device.status === "online" ? "online" : "offline"
+          }`}
+        >
+          <h3>
+  <span className={`dot ${device.status}`}></span>
+  {device.name}
+</h3>
+          <p>{device.ip}</p>
+          <span>{device.status.toUpperCase()}</span>
+          <p>Response: {device.time} ms</p>
+        </div>
+      ))}
+    </div>
+  </div>
+)
 }
+
+export default Dashboard

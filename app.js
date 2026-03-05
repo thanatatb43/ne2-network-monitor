@@ -2,6 +2,9 @@ const express = require('express')
 const path = require('path')
 const app = express()
 const port = 3000
+const cors = require("cors")
+
+app.use(cors())
 
 const devicesRouter = require("./routes/devices")
 const pingRouter = require("./routes/ping");

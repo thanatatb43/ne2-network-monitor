@@ -1,15 +1,17 @@
 import { Routes, Route } from "react-router-dom"
-import MainLayout from "./layouts/MainLayout"
+import Layout from "./layouts/Layout"
 import Dashboard from "./pages/Dashboard"
 import Devices from "./pages/Devices"
 
-export default function App() {
+function App() {
   return (
     <Routes>
-      <Route element={<MainLayout />}>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/devices" element={<Devices />} />
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Dashboard />} />
+        <Route path="devices" element={<Devices />} />
       </Route>
     </Routes>
   )
 }
+
+export default App

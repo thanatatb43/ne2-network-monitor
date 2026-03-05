@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { Device } = require('../models')
+const ping = require('ping')
 
 /* =========================
    GET ALL DEVICES
@@ -13,6 +14,30 @@ router.get("/", async (req, res) => {
     res.json(devices)
   } catch (err) {
     res.status(500).json({ error: err.message })
+  }
+})
+
+router.get("/status", async (req, res) => {
+  try {
+    const devices = await Device.findAll()
+
+    const results = await Promise.all(
+      devices.map(async (device) => {
+        const response = await ping.promise.probe(device.wan_ip)
+
+        return {
+          id: device.id,
+          name: device.pea_name,
+          ip: device.wan_ip,
+          status: response.alive ? "online" : "offline",
+          time: response.time
+        }
+      })
+    )
+
+    res.json(results)
+  } catch (err) {
+    res.status(500).json({ error: "Ping failed" })
   }
 })
 
