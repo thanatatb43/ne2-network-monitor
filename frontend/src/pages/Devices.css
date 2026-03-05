@@ -1,0 +1,93 @@
+.table thead th {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.table tbody tr {
+  font-size: 14px;
+}
+
+.card {
+  border-radius: 14px;
+}
+
+.table tbody tr {
+  font-size: 14px;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ===== UNIFI STYLE TABLE ===== */
+
+.unifi-table table {
+  font-size: 14px;
+}
+
+.unifi-table thead {
+  background: #f8f9fa;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #6c757d;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.unifi-table thead th {
+  padding: 12px 16px;
+}
+
+.unifi-table tbody td {
+  padding: 14px 16px;
+  border-top: 1px solid #f1f3f5;
+}
+
+.unifi-table tbody tr {
+  transition: background 0.2s ease;
+}
+
+.unifi-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+/* SORTABLE */
+.sortable {
+  cursor: pointer;
+}
+
+/* STATUS DOT */
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-dot.online {
+  background-color: #2ecc71;
+}
+
+.status-dot.offline {
+  background-color: #e74c3c;
+}
+
+/* LATENCY STYLE */
+.latency {
+  font-weight: 500;
+}
+
+.latency.good {
+  color: #2ecc71;
+}
+
+.latency.warning {
+  color: #f39c12;
+}

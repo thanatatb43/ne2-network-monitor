@@ -8,6 +8,13 @@ app.use(cors())
 
 const devicesRouter = require("./routes/devices")
 const pingRouter = require("./routes/ping");
+const { startPingMonitor } = require("./services/pingService");
+const { aggregateHourly } = require("./services/aggregateService");
+
+startPingMonitor();
+setInterval(() => {
+    aggregateHourly();
+}, 3600000); // 1 hour
 
 app.use(express.static('public'))
 
@@ -27,3 +34,4 @@ app.get("/{*any}", (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on port ${port}`)
 })
+

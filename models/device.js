@@ -22,6 +22,8 @@ module.exports = (sequelize, DataTypes) => {
     wan_ip: DataTypes.STRING,
     vpn_main: DataTypes.STRING,
     vpn_backup: DataTypes.STRING,
+    status: DataTypes.STRING,
+    lastChecked: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'Device',

@@ -11,7 +11,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   LatencyLog.init({
     device_id: DataTypes.INTEGER,
-    latency: DataTypes.INTEGER,
+    latency: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
     status: DataTypes.STRING,
     packetLoss: DataTypes.FLOAT
   }, {
