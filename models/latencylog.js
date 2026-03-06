@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // a log belongs to a device
       LatencyLog.belongsTo(models.Device, {
-        foreignKey: 'device_id'
+        foreignKey: 'device_id',
+        as: 'device'
       });
     }
   }

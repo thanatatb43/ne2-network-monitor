@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react"
 import api from "../services/api"
 import "./Dashboard.css"
+import LatencyChart from "../components/LatencyChart";
 
 function Dashboard() {
   const [devices, setDevices] = useState([])
+  const [selectedDevice, setSelectedDevice] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const onlineCount = devices.filter(d => d.status === "online").length
-const offlineCount = devices.filter(d => d.status === "offline").length
-const sortedDevices = [...devices].sort((a, b) =>
+  const offlineCount = devices.filter(d => d.status === "offline").length
+  const sortedDevices = [...devices].sort((a, b) =>
   a.status === "online" && b.status === "offline" ? -1 : 1
 )
 
@@ -49,6 +51,8 @@ const sortedDevices = [...devices].sort((a, b) =>
         Total: {devices.length}
       </div>
     </div>
+
+    <LatencyChart />
 
     <div className="card-container">
       {sortedDevices.map((device) => (
